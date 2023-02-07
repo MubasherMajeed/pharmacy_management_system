@@ -64,13 +64,13 @@ router.post("",(req,res,next)=>{
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-           user: "pharmacare.contactus@gmail.com",
-        pass: "lalana1011294"
+           user: "karimmadicalstore@gmail.com",
+        pass: "ouradlikrcrqzply"
       }
     });
 
     let mailOptions = {
-      from: '"Pharma Care Pharmacies"<example.gmail.com>', // sender address
+      from: '"Karim Medical Store "<example.gmail.com>', // sender address
       to: user.email, // list of receivers
       subject: "We Recived Your Oder 👻", // Subject line
       html: `

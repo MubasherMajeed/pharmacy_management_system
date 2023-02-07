@@ -61,8 +61,8 @@ async function sendMail(user, callback) {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "pharmacare.contactus@gmail.com",
-      pass: "lalana1011294"
+      user: "karimmadicalstore@gmail.com",
+      pass: "ouradlikrcrqzply"
     }
   });
 
@@ -159,7 +159,7 @@ async function sendMail(user, callback) {
     </table><br>
     <h2>Total Paid Amount :Rs. ${user.total}</h2><br>
     <h3>Info* : </h3>
-    <h4>If there is any issue reagrding the oder please be free to contact us or email us (pharmacare.contactus@gmail.com) 😃 </h4>
+    <h4>If there is any issue reagrding the oder please be free to contact us or email us (karimmadicalstore@gmail.com) 😃 </h4>
     </body>
     `
   };
