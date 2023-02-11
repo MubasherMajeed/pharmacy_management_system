@@ -97,6 +97,7 @@ import { AddDoctorUserComponent } from './mainwindow/x-configuration-settings-ad
 import { AboutToOutofStockWindowComponent } from './mainwindow/about-to-outof-stock-window/about-to-outof-stock-window.component';
 import { AboutToOutofStockItemsComponent } from './mainwindow/about-to-outof-stock-window/about-to-outof-stock-items/about-to-outof-stock-items.component';
 import { XOutofstockDialogBoxComponent } from './mainwindow/xoutofstock-dialog-box/xoutofstock-dialog-box.component';
+import { HomePageItemComponent } from './mainwindow/home-page-default/home-page-item/home-page-item.component';
 
 const appRoutes: Routes =[
   { path: '',component:  MainwindowComponent},
@@ -191,7 +192,9 @@ const appRoutes: Routes =[
     AddDoctorUserComponent,
     AboutToOutofStockWindowComponent,
     AboutToOutofStockItemsComponent,
-    XOutofstockDialogBoxComponent
+    XOutofstockDialogBoxComponent,
+    HomePageItemComponent,
+
 
   ],
   entryComponents: [

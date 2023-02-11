@@ -1,4 +1,4 @@
-<div style="margin-top: 5%; padding-right:3%; padding-left:3%;">
+<div style="margin-top: 5%; padding-right:3%; padding-left:3%;" *ngIf="userIsAuthenticated">
   <div class="columns is-offset-1 is-11 is-centered ">
     <app-stat-panel></app-stat-panel>
   </div>
@@ -95,4 +95,8 @@
     </section>
   </div> -->
 
+</div>
+
+<div style="margin-top: 8%; padding-right:3%; padding-left:3%;" *ngIf="!userIsAuthenticated">
+<app-home-page-item></app-home-page-item>
 </div>
