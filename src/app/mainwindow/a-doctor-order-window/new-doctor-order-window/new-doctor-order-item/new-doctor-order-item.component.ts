@@ -20,7 +20,9 @@ export class NewDoctorOrderItemComponent implements OnInit {
 
 
 
-  constructor(private doctoderService: DoctorOderServices, private emailInteractionService: EmailInteractionService , private sankBar : MatSnackBar){}
+  constructor(private doctoderService: DoctorOderServices,
+              private emailInteractionService: EmailInteractionService ,
+              private sankBar : MatSnackBar){}
 
   ngOnInit() {
     this.isLoading = true;

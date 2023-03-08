@@ -12,6 +12,10 @@ export class AuthService{
 
   isAuthenticated = false;
   private token : string;
+  private email : string;
+  private contact : string;
+  private name : string;
+  users: Array<any> = [];
   private tokenTimer : any;
   private authStatusListener  = new Subject<boolean>();
   userRole :string;
@@ -27,6 +31,11 @@ export class AuthService{
 
   getIsAuth(){
     return this.isAuthenticated;
+  }
+
+  getUserEmail()
+  {
+    return this.email;
   }
 
   getUserRole(){
@@ -65,7 +74,7 @@ export class AuthService{
           const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
           console.log(expirationDate,email);
 
-          this.saveAuthData(token, expirationDate );
+          this.saveAuthData(token, expirationDate ,email);
 
           this.router.navigate(['/']);
           // this.headerUserdetailsComponent.onViewUserEmail(email);
@@ -106,24 +115,28 @@ export class AuthService{
     }, duration * 1000);
   }
 
-  private saveAuthData(token: string, expirationDate: Date){
+  private saveAuthData(token: string, expirationDate: Date,email:string){
+    localStorage.setItem("email",email)
     localStorage.setItem("token", token);
     localStorage.setItem("expiration", expirationDate.toISOString());
   }
 
   private clearAuthData(){
+    localStorage.removeItem("email");
     localStorage.removeItem("token");
     localStorage.removeItem("expiration")
   }
 
 
-  private getAuthData(){
+  public getAuthData(){
     const token = localStorage.getItem("token");
     const expirationDate = localStorage.getItem("expiration");
+    const email = localStorage.getItem("email");
     if(!token || !expirationDate){
       return;
     }
     return{
+      email:email,
       token: token,
       expirationDate : new Date(expirationDate)
     }
@@ -135,9 +148,14 @@ export class AuthService{
   }
 
 
+  getCurrentUsers(){
+
+    return(this.users);
+  }
   getUser() {
     this.http.get<{message: string, users: any}>('http://localhost:4000/api/user/getUserData')
     .pipe(map(userData => {
+      this.users.push(userData);
      return userData.users.map(user=>{
        return{
 

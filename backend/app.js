@@ -6,12 +6,16 @@ const mongoose = require('mongoose');
 const app = express();
 const supplierRoutes = require('./routes/supplier');
 const inventoryRoutes = require('./routes/inventory');
+const supplierInventoryRoutes = require('./routes/supplierinventory');
 const userRoutes = require('./routes/user');
 const salesRoutes = require('./routes/sales');
 const doctorUserRoutes = require('./routes/doctorUser');
 const doctorOderRoutes = require('./routes/doctorOders');
+const UserOrderRoutes = require('./routes/userOrder');
 const verifiedDoctorOderRoutes = require('./routes/verifiedDoctorOder');
+const verifiedUserOrderRoutes = require('./routes/verifiedUserOrder');
 const pickedUpOdersRoutes = require('./routes/pickedUpOders');
+const pickedUpUserOrdersRoutes = require('./routes/pickedupUserOrder');
 
 
 
@@ -110,11 +114,18 @@ app.use((req,res,next)=>{
 
 app.use("/api/supplier",supplierRoutes);
 app.use("/api/inventory",inventoryRoutes);
+app.use("/api/supplierinventory",supplierInventoryRoutes);
 app.use("/api/user",userRoutes);
 app.use("/api/sales",salesRoutes);
 app.use("/api/doctorUser",doctorUserRoutes);
+app.use("/api/supplierOder",UserOrderRoutes);
+app.use("/api/UserOder",UserOrderRoutes);
 app.use("/api/doctorOder",doctorOderRoutes);
+app.use("/api/verifiedUserOrder",verifiedUserOrderRoutes);
 app.use("/api/verifiedDoctorOder",verifiedDoctorOderRoutes);
+app.use("/api/pickedUpUserOrders",pickedUpUserOrdersRoutes);
 app.use("/api/pickedUpOders",pickedUpOdersRoutes);
 
 module.exports = app;
+
+

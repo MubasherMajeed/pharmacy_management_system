@@ -1,4 +1,4 @@
-<div style="margin-top: 5%; padding-right:3%; padding-left:3%;" *ngIf="userIsAuthenticated">
+<div style="margin-top: 5%; padding-right:3%; padding-left:3%;" *ngIf="PharamacistRole||ApharmacistRole||CashierRole">
   <div class="columns is-offset-1 is-11 is-centered ">
     <app-stat-panel></app-stat-panel>
   </div>
@@ -99,4 +99,8 @@
 
 <div style="margin-top: 8%; padding-right:3%; padding-left:3%;" *ngIf="!userIsAuthenticated">
 <app-home-page-item></app-home-page-item>
+</div>
+
+<div style="margin-top: 8%; padding-right:3%; padding-left:3%;" *ngIf="SupplierRole">
+<app-a-user-order-window></app-a-user-order-window>
 </div>

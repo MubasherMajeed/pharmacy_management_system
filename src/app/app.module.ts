@@ -98,6 +98,23 @@ import { AboutToOutofStockWindowComponent } from './mainwindow/about-to-outof-st
 import { AboutToOutofStockItemsComponent } from './mainwindow/about-to-outof-stock-window/about-to-outof-stock-items/about-to-outof-stock-items.component';
 import { XOutofstockDialogBoxComponent } from './mainwindow/xoutofstock-dialog-box/xoutofstock-dialog-box.component';
 import { HomePageItemComponent } from './mainwindow/home-page-default/home-page-item/home-page-item.component';
+import { AddSupplierInventoryWindowComponent } from './mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/add-supplier-inventory-window/add-supplier-inventory-window.component';
+import { DrugSupplierInventoryWindowComponent } from './mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/drug-supplier-inventory-window/drug-supplier-inventory-window.component';
+import { SearchSupplierInventoryComponent } from './mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/search-supplier-inventory/search-supplier-inventory.component';
+import { AddSupplierInventoryElementComponent } from './mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/add-supplier-inventory-window/add-supplier-inventory-element/add-supplier-inventory-element.component';
+import {
+  SupplierInventoryFilterPipe
+} from "./mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/supplier-inventory-filter.pipe";
+import { DrugSupplierInventoryItemsComponent } from './mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/drug-supplier-inventory-window/drug-supplier-inventory-items/drug-supplier-inventory-items.component';
+import { PharmacistShopingCartWindowComponent } from './mainwindow/show-supplier-inventory-window/pharmacist-shoping-cart-window/pharmacist-shoping-cart-window.component';
+import { PharmacistShopingCartItemComponent } from './mainwindow/show-supplier-inventory-window/pharmacist-shoping-cart-window/pharmacist-shoping-cart-item/pharmacist-shoping-cart-item.component';
+import { AUserOrderWindowComponent } from './mainwindow/a-user-order-window/a-user-order-window.component';
+import { NewUserOrderWindowComponent } from './mainwindow/a-user-order-window/new-user-order-window/new-user-order-window.component';
+import { NewUserOrderItemComponent } from './mainwindow/a-user-order-window/new-user-order-window/new-user-order-item/new-user-order-item.component';
+import { PickupUserOrderWindowComponent } from './mainwindow/a-user-order-window/pickup-user-order-window/pickup-user-order-window.component';
+import { PickupUserOrderItemComponent } from './mainwindow/a-user-order-window/pickup-user-order-window/pickup-user-order-item/pickup-user-order-item.component';
+import { VerifiedUserOrderWindowComponent } from './mainwindow/a-user-order-window/verified-user-order-window/verified-user-order-window.component';
+import { VerifiedUserOrderItemComponent } from './mainwindow/a-user-order-window/verified-user-order-window/verified-user-order-item/verified-user-order-item.component';
 
 const appRoutes: Routes =[
   { path: '',component:  MainwindowComponent},
@@ -194,7 +211,22 @@ const appRoutes: Routes =[
     AboutToOutofStockItemsComponent,
     XOutofstockDialogBoxComponent,
     HomePageItemComponent,
-
+    AddSupplierInventoryWindowComponent,
+    DrugSupplierInventoryWindowComponent,
+    SearchSupplierInventoryComponent,
+    AddSupplierInventoryElementComponent,
+    SupplierInventoryFilterPipe,
+    DrugSupplierInventoryItemsComponent,
+    // ShowSupplierInventoryWindowComponent,
+    PharmacistShopingCartWindowComponent,
+    PharmacistShopingCartItemComponent,
+    AUserOrderWindowComponent,
+    NewUserOrderWindowComponent,
+    NewUserOrderItemComponent,
+    PickupUserOrderWindowComponent,
+    PickupUserOrderItemComponent,
+    VerifiedUserOrderWindowComponent,
+    VerifiedUserOrderItemComponent,
 
   ],
   entryComponents: [
@@ -219,7 +251,8 @@ const appRoutes: Routes =[
     MatDialogModule,
     MatButtonModule,
     MatRadioModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+
 
 
   ],

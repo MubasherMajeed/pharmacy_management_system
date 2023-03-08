@@ -31,6 +31,25 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { DoctorLoginComponent } from './auth/doctorAuth/doctorLogin/doctorLogin.component';
 import { XConfigurationSettingsAdminComponent } from './mainwindow/x-configuration-settings-admin/x-configuration-settings-admin.component';
+import {
+  AddSupplierInventoryWindowComponent
+} from "./mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/add-supplier-inventory-window/add-supplier-inventory-window.component";
+import {
+  DrugSupplierInventoryWindowComponent
+} from "./mainwindow/a-inventory-window/supplier-inventory-window/supplier-inventory-window/drug-supplier-inventory-window/drug-supplier-inventory-window.component";
+import {
+  PharmacistShopingCartWindowComponent
+} from "./mainwindow/show-supplier-inventory-window/pharmacist-shoping-cart-window/pharmacist-shoping-cart-window.component";
+import {
+  PharmacistShopingCartItemComponent
+} from "./mainwindow/show-supplier-inventory-window/pharmacist-shoping-cart-window/pharmacist-shoping-cart-item/pharmacist-shoping-cart-item.component";
+import {
+  VerifiedUserOrderWindowComponent
+} from "./mainwindow/a-user-order-window/verified-user-order-window/verified-user-order-window.component";
+import {AUserOrderWindowComponent} from "./mainwindow/a-user-order-window/a-user-order-window.component";
+import {
+  PickupUserOrderWindowComponent
+} from "./mainwindow/a-user-order-window/pickup-user-order-window/pickup-user-order-window.component";
 
 
 const routes: Routes = [
@@ -42,6 +61,14 @@ const routes: Routes = [
   {path: 'inventory/create', component: DrugInventoryWindowComponent },
   {path: 'editi/:inventoryId', component: AddInventoryWindowComponent ,canActivate:[AuthGuard]},
 
+
+  {path: 'supplierinventory', component: AddSupplierInventoryWindowComponent },
+  {path: 'supplierinventory/create', component: DrugSupplierInventoryWindowComponent },
+  {path: 'supplierediti/:inventoryId', component: AddSupplierInventoryWindowComponent ,canActivate:[AuthGuard]},
+  //for pharmacist
+  {path: 'showsupplierinventory', component: PharmacistShopingCartItemComponent },
+
+
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'doctorLogin', component: DoctorLoginComponent},
@@ -50,6 +77,10 @@ const routes: Routes = [
   {path: 'doctororders/new', component: VerifiedDoctorOrderWindowComponent },
   {path: 'doctororders', component: ADoctorOrderWindowComponent },
   {path: 'doctororders/pickedUp', component: PickupOrderWindowComponent },
+
+  {path: 'userorders/new', component: VerifiedUserOrderWindowComponent },
+  {path: 'userorders', component: AUserOrderWindowComponent },
+  {path: 'userorders/pickedUp', component: PickupUserOrderWindowComponent },
 
   {path: 'expoutofstock', component: AExpOutofstockWindowComponent },
   {path: 'expoutofstock/abouttoexpire', component: AboutToExpireWindowComponent },

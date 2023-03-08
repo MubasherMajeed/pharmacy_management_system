@@ -11,6 +11,7 @@ export class MenuitemComponent implements OnInit {
   PharamacistRole = false;
   ApharmacistRole = false;
   CashierRole = false;
+  SupplierRole = false;
   role: string;
 
   userIsAuthenticated =false;
@@ -35,6 +36,8 @@ export class MenuitemComponent implements OnInit {
     }
     else if(this.role === "assistantPharmacist" ){
       this.ApharmacistRole = true;
+    }else if(this.role === "supplier" ){
+      this.SupplierRole = true;
     }
 
   }

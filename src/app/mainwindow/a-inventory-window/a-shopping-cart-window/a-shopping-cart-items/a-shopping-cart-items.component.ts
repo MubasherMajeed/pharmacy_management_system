@@ -1,4 +1,3 @@
-//import { DoctorOderService } from './../DoctorOderService.service';
 import { AuthDoctorData } from './../../../../auth/doctorAuth/doctorAuth-model';
 import { AuthDoctorUserService } from './../../../../auth/doctorAuth/authDoctorUser.service';
 import { NgForm } from '@angular/forms';
@@ -50,10 +49,12 @@ export class AShoppingCartItemsComponent implements OnInit {
   userIsAuthenticated =false;
   private authListenerSubs: Subscription;
 
-  constructor(private inventoryInteractionService: InventoryInteractionService, private authDoctorUserService:AuthDoctorUserService, private doctorOderService:DoctorOderServices) {
-  //   this.currentUserSubscription = this.authDoctorUserService.currentUser.subscribe(user => {
-  //   this.currentUser = user;
-  // });
+  constructor(private inventoryInteractionService: InventoryInteractionService,
+              private authDoctorUserService:AuthDoctorUserService,
+              private doctorOderService:DoctorOderServices) {
+    //   this.currentUserSubscription = this.authDoctorUserService.currentUser.subscribe(user => {
+    //   this.currentUser = user;
+    // });
   }
 
   ngOnInit() {
@@ -67,9 +68,10 @@ export class AShoppingCartItemsComponent implements OnInit {
 
     this.userIsAuthenticated = this.authDoctorUserService.getIsAuth();
     this.authListenerSubs = this.authDoctorUserService.getAuthStatusListener()
-    .subscribe(isAuthenticated =>{
-      this.userIsAuthenticated= isAuthenticated;
-    });
+      .subscribe(isAuthenticated =>{
+        this.userIsAuthenticated= isAuthenticated;
+      });
+
 
 
 
@@ -78,6 +80,7 @@ export class AShoppingCartItemsComponent implements OnInit {
     this.doctors = this.authDoctorUserService.getDoctors();
     this.docArrLength = this.doctors.length;
     this.TrimedDoctors = this.doctors[this.docArrLength-1];
+    console.log("Trimed Doctor");
     console.log(this.TrimedDoctors);
 
   }
@@ -110,15 +113,15 @@ export class AShoppingCartItemsComponent implements OnInit {
     this.total = 0;
 
     for (let count = 0 ; count < length; count++) {
-       x = this.itemArray[count][3];
+      x = this.itemArray[count][3];
 
-       z = this.itemArray[count][4];
-       sum = +x * +z ;
+      z = this.itemArray[count][4];
+      sum = +x * +z ;
 
-       this.total = this.total + sum;
+      this.total = this.total + sum;
 
     }
-  //  console.log(this.dataArray);
+    //  console.log(this.dataArray);
     return this.total;
   }
 
@@ -139,7 +142,15 @@ export class AShoppingCartItemsComponent implements OnInit {
     let totalAmount = this.total;
     let pickupDate = checkoutForm.value.pickupDateInput;
     console.log(drugName);
-    this.doctorOderService.createDoctorUser(doctorName,doctorContact,doctorId,doctorEmail,drugId,drugName,drugPrice,drugQuantity,realQuantity,totalAmount,pickupDate)
+    this.doctorOderService.
+    createDoctorUser(doctorName,
+      doctorContact,doctorId,
+      doctorEmail,drugId,
+      drugName,drugPrice,
+      drugQuantity,
+      realQuantity,
+      totalAmount,
+      pickupDate)
 
 
   }

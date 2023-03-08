@@ -22,58 +22,58 @@ router.post("",(req,res,next)=>{
     pickupDate: req.body.pickupDate
   });
   docOder.save().then(createdDocOder=>{
-  res.status(201).json({
-    message:'Doctor Oder Added Successfully',
-    doctorOderId : createdDocOder._id
-  });
-
-  });
-
-  });
-
-  router.get("",(req,res,next)=>{
-    DoctorOder.find().then(documents=>{
-      res.status(200).json({
-        message : 'Doctor oder added sucessfully',
-        doctorOders :documents
-      });
-    });
-  });
-
-  router.delete("/:id", (req, res, next) => {
-    DoctorOder.deleteOne({ _id: req.params.id }).then(result => {
-      console.log(result);
-      res.status(200).json({ message: 'Doctor order deleted!' });
-    });
-  });
-
-  router.post("/sendmail", (req, res) => {
-    console.log("request came");
-    let user = req.body;
-    sendMail(user, info => {
-      console.log(`The mail has been send 😃 and the id is ${info.messageId}`);
-      res.send(info);
-    });
-  });
-
-
-  async function sendMail(user, callback) {
-    // reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false, // true for 465, false for other ports
-      auth: {
-           user: "karimmadicalstore@gmail.com",
-        pass: "ouradlikrcrqzply"
-      }
+    res.status(201).json({
+      message:'Doctor Oder Added Successfully',
+      doctorOderId : createdDocOder._id
     });
 
-    let mailOptions = {
-      from: '"Karim Medical Store "<example.gmail.com>', // sender address
-      to: user.email, // list of receivers
-      subject: "We Recived Your Oder 👻", // Subject line
-      html: `
+  });
+
+});
+
+router.get("",(req,res,next)=>{
+  DoctorOder.find().then(documents=>{
+    res.status(200).json({
+      message : 'Doctor oder added sucessfully',
+      doctorOders :documents
+    });
+  });
+});
+
+router.delete("/:id", (req, res, next) => {
+  DoctorOder.deleteOne({ _id: req.params.id }).then(result => {
+    console.log(result);
+    res.status(200).json({ message: 'Doctor order deleted!' });
+  });
+});
+
+router.post("/sendmail", (req, res) => {
+  console.log("request came");
+  let user = req.body;
+  sendMail(user, info => {
+    console.log(`The mail has been send 😃 and the id is ${info.messageId}`);
+    res.send(info);
+  });
+});
+
+
+async function sendMail(user, callback) {
+  // reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: "karimmadicalstore@gmail.com",
+      pass: "ouradlikrcrqzply"
+    }
+  });
+
+  let mailOptions = {
+    from: '"Karim Medical Store "<example.gmail.com>', // sender address
+    to: user.email, // list of receivers
+    subject: "We Recived Your Oder 👻", // Subject line
+    html: `
       <head>
       <style>
         table {
@@ -165,13 +165,13 @@ router.post("",(req,res,next)=>{
       <h4>If there is any issue reagrding the oder please be free to contact us or email us (Karimmediacalstore@gmail.com) 😃 </h4>
       </body>
       `
-    };
+  };
 
-    // send mail with defined transport object
-    let info = await transporter.sendMail(mailOptions);
+  // send mail with defined transport object
+  let info = await transporter.sendMail(mailOptions);
 
-    callback(info);
-  }
+  callback(info);
+}
 
 
-  module.exports = router;
+module.exports = router;

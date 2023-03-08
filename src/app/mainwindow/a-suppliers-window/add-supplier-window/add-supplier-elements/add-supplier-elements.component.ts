@@ -27,7 +27,11 @@ export class AddSupplierElementsComponent implements OnInit {
   private supplierId : string;
 
 
- constructor(private supplierInteractionService: SupplierInteractionService, public route: ActivatedRoute, private snackBar : MatSnackBar){}
+ constructor(
+   private supplierInteractionService: SupplierInteractionService,
+             public route: ActivatedRoute,
+             private snackBar : MatSnackBar
+ ){}
 
 
   ngOnInit() {

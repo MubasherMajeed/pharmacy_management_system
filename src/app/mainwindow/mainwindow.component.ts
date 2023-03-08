@@ -11,6 +11,7 @@ export class MainwindowComponent implements OnInit {
   PharamacistRole = false;
   ApharmacistRole = false;
   CashierRole = false;
+  SupplierRole = false;
   defaultUser = false;
   role: string;
 
@@ -36,6 +37,8 @@ export class MainwindowComponent implements OnInit {
     }
     else if(this.role === "assistantPharmacist" ){
       this.ApharmacistRole = true;
+    }else if(this.role === "supplier" ){
+      this.SupplierRole = true;
     }
 
   }

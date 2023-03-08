@@ -19,16 +19,16 @@ export class DoctorOderServices{
 
   createDoctorUser(doctorName: string , doctorContact: string , doctorId: string ,doctorEmail: string ,drugId: Array<any> = [] ,drugName: Array<any> = [],drugPrice: Array<any> = [] ,drugQuantity: Array<any> = [] ,realQuantity: Array<any> = [] ,totalAmount: number,pickupDate: string){
     const DoctorOderData  = {doctorName:doctorName ,
-                            doctorContact:doctorContact ,
-                            doctorId:doctorId ,
-                            doctorEmail:doctorEmail ,
-                            drugId:drugId,
-                            drugName:drugName ,
-                            drugPrice:drugPrice,
-                            drugQuantity:drugQuantity,
-                            realQuantity:realQuantity,
-                            totalAmount:totalAmount,
-                            pickupDate:pickupDate};
+      doctorContact:doctorContact ,
+      doctorId:doctorId ,
+      doctorEmail:doctorEmail ,
+      drugId:drugId,
+      drugName:drugName ,
+      drugPrice:drugPrice,
+      drugQuantity:drugQuantity,
+      realQuantity:realQuantity,
+      totalAmount:totalAmount,
+      pickupDate:pickupDate};
     this.http.post("http://localhost:4000/api/doctorOder",DoctorOderData)
       .subscribe(response =>{
         console.log(response);
@@ -41,16 +41,16 @@ export class DoctorOderServices{
 
   createVerifiedDoctorOder(doctorName: string,doctorEmail: string,doctorId: string ,totalAmount: number,pickupDate: string,drugId: Array<any> = [] ,drugName: Array<any> = [],drugPrice: Array<any> = [] ,drugQuantity: Array<any> = [],realQuantity: Array<any> = [] ,doctorContact: string){
     const VerifiedDoctorOderData  = {doctorName:doctorName ,
-                            doctorContact:doctorContact ,
-                            doctorId:doctorId ,
-                            doctorEmail:doctorEmail ,
-                            drugId:drugId,
-                            drugName:drugName ,
-                            drugPrice:drugPrice,
-                            drugQuantity:drugQuantity,
-                            realQuantity:realQuantity,
-                            totalAmount:totalAmount,
-                            pickupDate:pickupDate};
+      doctorContact:doctorContact ,
+      doctorId:doctorId ,
+      doctorEmail:doctorEmail ,
+      drugId:drugId,
+      drugName:drugName ,
+      drugPrice:drugPrice,
+      drugQuantity:drugQuantity,
+      realQuantity:realQuantity,
+      totalAmount:totalAmount,
+      pickupDate:pickupDate};
     this.http.post("http://localhost:4000/api/verifiedDoctorOder",VerifiedDoctorOderData)
       .subscribe(response =>{
         console.log(response);
@@ -62,15 +62,15 @@ export class DoctorOderServices{
 
   createPickedUpDoctorOder(doctorName: string,doctorEmail: string,doctorId: string ,totalAmount: number,pickupDate: string, drugId: Array<any> = [], drugName: Array<any> = [],drugPrice: Array<any> = [] ,drugQuantity: Array<any> = [] ,doctorContact: string){
     const PickedUpDoctorOderData  = {doctorName:doctorName ,
-                            doctorContact:doctorContact ,
-                            doctorId:doctorId ,
-                            doctorEmail:doctorEmail ,
-                            drugId:drugId ,
-                            drugName:drugName ,
-                            drugPrice:drugPrice,
-                            drugQuantity:drugQuantity,
-                            totalAmount:totalAmount,
-                            pickupDate:pickupDate};
+      doctorContact:doctorContact ,
+      doctorId:doctorId ,
+      doctorEmail:doctorEmail ,
+      drugId:drugId ,
+      drugName:drugName ,
+      drugPrice:drugPrice,
+      drugQuantity:drugQuantity,
+      totalAmount:totalAmount,
+      pickupDate:pickupDate};
     this.http.post("http://localhost:4000/api/pickedUpOders",PickedUpDoctorOderData)
       .subscribe(response =>{
         console.log(response);
@@ -82,28 +82,28 @@ export class DoctorOderServices{
 
   getDocOders() {
     this.http.get<{message: string, doctorOders: any}>("http://localhost:4000/api/doctorOder")
-    .pipe(map(docOderData => {
-     return docOderData.doctorOders.map(doctorOder => {
-       return{
-        doctorName : doctorOder.doctorName ,
-        doctorContact : doctorOder.doctorContact ,
-        doctorId : doctorOder.doctorID,
-        doctorEmail : doctorOder.doctorEmail ,
-        drugId : doctorOder.drugId ,
-        drugName : doctorOder.drugNames ,
-        drugPrice : doctorOder.drugPrice,
-        drugQuantity : doctorOder.drugQuantity,
-        realQuantity : doctorOder.realQuantity,
-        totalAmount : doctorOder.totalAmount,
-        pickupDate : doctorOder.pickupDate,
-        id: doctorOder._id
-       }
-     })
-    }))
-    .subscribe((transformedDocOders)=>{
-      this.docOders = transformedDocOders;
-      this.docOdersUpdated.next([...this.docOders])
-    });
+      .pipe(map(docOderData => {
+        return docOderData.doctorOders.map(doctorOder => {
+          return{
+            doctorName : doctorOder.doctorName ,
+            doctorContact : doctorOder.doctorContact ,
+            doctorId : doctorOder.doctorID,
+            doctorEmail : doctorOder.doctorEmail ,
+            drugId : doctorOder.drugId ,
+            drugName : doctorOder.drugNames ,
+            drugPrice : doctorOder.drugPrice,
+            drugQuantity : doctorOder.drugQuantity,
+            realQuantity : doctorOder.realQuantity,
+            totalAmount : doctorOder.totalAmount,
+            pickupDate : doctorOder.pickupDate,
+            id: doctorOder._id
+          }
+        })
+      }))
+      .subscribe((transformedDocOders)=>{
+        this.docOders = transformedDocOders;
+        this.docOdersUpdated.next([...this.docOders])
+      });
 
   }
 
@@ -116,28 +116,28 @@ export class DoctorOderServices{
 
   getVerifiedDocOders() {
     this.http.get<{message: string, doctorOders: any}>("http://localhost:4000/api/verifiedDoctorOder")
-    .pipe(map(docOderData => {
-     return docOderData.doctorOders.map(doctorOder => {
-       return{
-        doctorName : doctorOder.doctorName ,
-        doctorContact : doctorOder.doctorContact ,
-        doctorId : doctorOder.doctorID,
-        doctorEmail : doctorOder.doctorEmail ,
-        drugId : doctorOder.drugId ,
-        drugName : doctorOder.drugNames ,
-        drugPrice : doctorOder.drugPrice,
-        drugQuantity : doctorOder.drugQuantity,
-        realQuantity : doctorOder.realQuantity,
-        totalAmount : doctorOder.totalAmount,
-        pickupDate : doctorOder.pickupDate,
-        id: doctorOder._id
-       }
-     })
-    }))
-    .subscribe((transformedDocOders)=>{
-      this.VerifiedDocOders = transformedDocOders;
-      this.VerifiedDocOdersUpdated.next([...this.VerifiedDocOders])
-    });
+      .pipe(map(docOderData => {
+        return docOderData.doctorOders.map(doctorOder => {
+          return{
+            doctorName : doctorOder.doctorName ,
+            doctorContact : doctorOder.doctorContact ,
+            doctorId : doctorOder.doctorID,
+            doctorEmail : doctorOder.doctorEmail ,
+            drugId : doctorOder.drugId ,
+            drugName : doctorOder.drugNames ,
+            drugPrice : doctorOder.drugPrice,
+            drugQuantity : doctorOder.drugQuantity,
+            realQuantity : doctorOder.realQuantity,
+            totalAmount : doctorOder.totalAmount,
+            pickupDate : doctorOder.pickupDate,
+            id: doctorOder._id
+          }
+        })
+      }))
+      .subscribe((transformedDocOders)=>{
+        this.VerifiedDocOders = transformedDocOders;
+        this.VerifiedDocOdersUpdated.next([...this.VerifiedDocOders])
+      });
   }
 
   getVerifiedDocOdersUpdateListener() {
@@ -147,27 +147,27 @@ export class DoctorOderServices{
 
   getPickedUpDocOders() {
     this.http.get<{message: string, doctorOders: any}>("http://localhost:4000/api/pickedUpOders")
-    .pipe(map(docOderData => {
-     return docOderData.doctorOders.map(doctorOder => {
-       return{
-        doctorName : doctorOder.doctorName ,
-        doctorContact : doctorOder.doctorContact ,
-        doctorId : doctorOder.doctorID,
-        doctorEmail : doctorOder.doctorEmail ,
-        drugName : doctorOder.drugNames ,
-        drugPrice : doctorOder.drugPrice,
-        drugQuantity : doctorOder.drugQuantity,
-        totalAmount : doctorOder.totalAmount,
-        pickupDate : doctorOder.pickupDate,
-        acctualDate : doctorOder.dateTime,
-        id: doctorOder._id
-       }
-     })
-    }))
-    .subscribe((transformedPickedUpDocOders)=>{
-      this.PickedUpDocOders = transformedPickedUpDocOders;
-      this.PickedUpDocOdersUpdated.next([...this.PickedUpDocOders])
-    });
+      .pipe(map(docOderData => {
+        return docOderData.doctorOders.map(doctorOder => {
+          return{
+            doctorName : doctorOder.doctorName ,
+            doctorContact : doctorOder.doctorContact ,
+            doctorId : doctorOder.doctorID,
+            doctorEmail : doctorOder.doctorEmail ,
+            drugName : doctorOder.drugNames ,
+            drugPrice : doctorOder.drugPrice,
+            drugQuantity : doctorOder.drugQuantity,
+            totalAmount : doctorOder.totalAmount,
+            pickupDate : doctorOder.pickupDate,
+            acctualDate : doctorOder.dateTime,
+            id: doctorOder._id
+          }
+        })
+      }))
+      .subscribe((transformedPickedUpDocOders)=>{
+        this.PickedUpDocOders = transformedPickedUpDocOders;
+        this.PickedUpDocOdersUpdated.next([...this.PickedUpDocOders])
+      });
   }
 
   getPickedUpDocOdersUpdateListener() {

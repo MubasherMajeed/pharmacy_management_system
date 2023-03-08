@@ -79,11 +79,4 @@ export class HomePageItemComponent implements OnInit {
     this.inventorySubs.unsubscribe();
   }
 
-
-
-
-
-
-
-
 }

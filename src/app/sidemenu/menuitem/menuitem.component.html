@@ -26,12 +26,37 @@
   <li class="newclass :hover">
     <a class="btn" routerLink="/inventory"><span class="icon"><i class="fa fa-yc-square fa-lg " style="margin-right:7px;"></i></span>Inventory</a>
   </li>
+<!--  for supplier inventory-->
+  <li class="newclass :hover">
+    <a class="btn" routerLink="/showsupplierinventory"><span class="icon"><i class="fa fa-yc-square fa-lg " style="margin-right:7px;"></i></span>Supplier Inventory</a>
+  </li>
   <li class="newclass :hover">
     <a class="btn" routerLink="/expoutofstock"><span class="icon"><i class="fa fa-exclamation-triangle fa-lg" style="margin-right: 7px;"></i></span> Expired</a>
   </li>
   <li class="newclass :hover">
     <a class="btn" routerLink="/outofstock"><span class="icon"><i class="fa fa-exclamation-triangle fa-lg" style="margin-right: 7px;"></i></span> Out of Stock</a>
   </li>
+</ul><br>
+
+<!-- Supplier Dashboard -->
+<ul class="menu-list" style="width: 108%;" *ngIf="SupplierRole">
+ <!-- <li class="newclass :hover" >
+    <a class="btn" routerLink="/" ><span class="icon" style="padding: 9px;"><i class="fa fa-tachometer fa-lg" style="margin-right: 7px;"></i></span>Dashboard</a>
+  </li>-->
+
+
+<!--  <li class="newclass :hover" >-->
+<!--    <a class="btn" routerLink="/predictionreport"><span class="icon"><i class="fa fa-bar-chart-o fa-lg" style="margin-right: 7px;"></i></span>Prediction Report</a>-->
+<!--  </li>-->
+  <li class="newclass :hover" >
+    <a class="btn" routerLink="/userorders"><span class="icon"><i class="fa fa-user-md fa-lg " style="margin-right: 7px;"></i></span>Pharmacist Orders</a>
+  </li>
+
+  <li class="newclass :hover">
+    <a class="btn" routerLink="/supplierinventory"><span class="icon"><i class="fa fa-yc-square fa-lg " style="margin-right:7px;"></i></span>Inventory</a>
+  </li>
+
+
 </ul><br>
 
 

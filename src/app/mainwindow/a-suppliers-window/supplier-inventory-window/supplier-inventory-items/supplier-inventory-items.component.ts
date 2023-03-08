@@ -18,7 +18,10 @@ export class SupplierInventoryItemsComponent implements OnInit,OnDestroy {
   private supplierSubs: Subscription;
   private authStatusSub: Subscription;
 
-  constructor(private supplierInteractionService: SupplierInteractionService, private authService: AuthService , private snackBar: MatSnackBar){}
+  constructor(
+    private supplierInteractionService: SupplierInteractionService,
+              private authService: AuthService ,
+              private snackBar: MatSnackBar){}
 
   ngOnInit() {
     this.isLoading = true;
